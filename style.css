@@ -1,0 +1,128 @@
+html, body {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0; margin: 0;
+}
+main {
+  width: 71.429%;   /* 5/7 */
+  height: 71.429%;   /* 5/7 */
+  max-height: 500px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 100px; /* 1/7 */
+  text-align: center;
+}
+p#intro {
+  margin: 0 auto; padding: 0;
+}
+img.cartoon {
+  max-width: 100%;
+  max-height: 80%;
+}
+/* The days of the calendar */
+ol.days:first-of-type {
+  counter-reset: listCounter;
+}
+ol.days {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  padding: 0; margin: 0;
+  color: white;
+}
+ol.days li {
+  box-sizing: border-box;
+  border: 2px solid red;
+  list-style: none;
+  text-align: center;
+  display: block;
+  background-color: darkred;
+  font-size: 48px;
+  font-weight: bold;
+  padding-top: 12px;
+  font-family: sans-serif;
+}
+ol.days li:nth-child(odd) {
+  background-color: green;
+  border-color: white;
+}
+ol.days li:before {
+  counter-increment: listCounter;
+  content: counter(listCounter);
+}
+/* Top row */
+ol.days.group1 {
+  top: 0;
+  left: 0;
+  flex-direction: row;
+}
+ol.days.horizontal {
+  height: 14.286%; /* 1/7 */
+  width: 85.714%;   /* 6/7 */
+}
+ol.days.horizontal li {
+  height: 100%;
+  width: 16.6666667%; /* 1/6 */
+}
+/* Right row */
+ol.days.group2  {
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: flex-end;
+}
+ol.days.vertical {
+  height: 85.714%;
+  width: 14.286%;
+}
+ol.days.vertical li {
+  height: 16.666666667%;
+  width: 100%;
+}
+/* Bottom row */
+ol.days.group3 {
+  bottom: 0;
+  left: 14.286%;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+/* Left row */
+ol.days.group4 {
+  bottom: 0;
+  left: 0;
+  flex-direction: column-reverse;
+}
+
+ol.days li.today {
+  border: 5px solid gold;
+  background-color: lightyellow;
+  color: green;
+}
+
+/** Wide Screens **/
+@media screen and (min-width: 700px) {
+  ol.days li { width: 100px !important; }
+}
+
+/** Tall Screens **/
+@media screen and (min-height: 700px) {
+  ol.days li { height: 100px !important; }
+}
+
+/** Short Screens **/
+@media screen and (max-height: 500px) {
+  ol.days li {font-size: 36px;}
+}
+@media screen and (max-height: 400px) {
+  ol.days li {font-size: 24px;}
+}
+@media screen and (max-height: 300px) {
+  ol.days li {font-size: 16px; padding-top: 8px;}
+}
+
+/** Narrow Screens **/
+@media screen and (max-width: 400px) {
+  ol.days li {font-size: 24px;}
