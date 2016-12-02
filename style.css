@@ -34,6 +34,7 @@ ol.days {
   color: white;
 }
 ol.days li {
+  position: relative;
   box-sizing: border-box;
   border: 2px solid red;
   list-style: none;
@@ -52,6 +53,15 @@ ol.days li:nth-child(odd) {
 ol.days li:before {
   counter-increment: listCounter;
   content: counter(listCounter);
+}
+ol.days a {
+  color: inherit;
+  text-decoration: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
 }
 /* Top row */
 ol.days.group1 {
